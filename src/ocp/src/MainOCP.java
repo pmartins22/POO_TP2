@@ -22,14 +22,20 @@ public class MainOCP {
 
             if (choix == 0) {
                 quitter = true;
+                System.out.println("Au revoir !");
                 continue;
             }
 
             System.out.print("Montant HT : ");
             double montant = lireDouble(scanner);
 
-            double total = calculateur.calculerTotal(choix, montant);
-            System.out.println("Montant après remise : " + total);
+            try {
+                DiscountStrategy strategy = DiscountFactory.getStrategy(choix);
+                double total = calculateur.calculerTotal(strategy, montant);
+                System.out.println("Montant après remise : " + total);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Choix invalide. Veuillez réessayer.");
+            }
         }
 
         scanner.close();
