@@ -14,14 +14,14 @@ public class MainSRP {
         while (!quitter) {
             afficherMenu();
 
-            int choix = ValueReader.lireEntier(scanner, "Choix : "); // <-- Using ValueReader
+            int choix = ValueReader.lireEntier(scanner, "Choix : ");
 
             switch (choix) {
                 case 1:
-                    DocumentManager.traiterDocument(scanner, service, true); // <-- Using DocumentManager
+                    DocumentManager.traiterDocument(scanner, service, true);
                     break;
                 case 2:
-                    DocumentManager.traiterDocument(scanner, service, false); // <-- Using DocumentManager
+                    DocumentManager.traiterDocument(scanner, service, false);
                     break;
                 case 0:
                     quitter = true;
